@@ -17,9 +17,8 @@ def clicked():
         part_of_key_random = sample(part_of_key_list, len(part_of_key_list))
         part_of_key = ''.join(part_of_key_random)
         key += part_of_key+"-"
-    print(key[:-1])
     res = key[:-1]
-    lbl.configure(text=f"Ваш ключ:{res}")
+    lbl.configure(text=f"Ваш ключ: {res}")
 
 
 window = Tk()
