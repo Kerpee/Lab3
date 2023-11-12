@@ -23,7 +23,7 @@ def clicked():
 
 window = Tk()
 mixer.init()
-mixer.music.load('sound8bit.wav')
+mixer.music.load('sound.wav')
 mixer.music.play(-1)
 mixer.music.set_volume(0.05)
 window.geometry('450x600')
