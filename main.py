@@ -1,10 +1,12 @@
-from tkinter import *
+from tkinter import Tk, Canvas, PhotoImage, Label, Button
 from random import choice
 from random import sample
 from pygame import mixer
+SIZE_OF_W_X = 450
+SIZE_OF_W_Y = 600
 
 
-def clicked():
+def generator(label):
     key = ''
     symbols = "QWERTYUIOPASDFGHJKLZXCVBNM"
     numbers = "0123456789"
@@ -18,7 +20,7 @@ def clicked():
         part_of_key = ''.join(part_of_key_random)
         key += part_of_key+"-"
     res = key[:-1]
-    lbl.configure(text=f"Ваш ключ: {res}")
+    label.configure(text=f"Ваш ключ: {res}")
 
 
 window = Tk()
@@ -26,12 +28,12 @@ mixer.init()
 mixer.music.load('sound.wav')
 mixer.music.play(-1)
 mixer.music.set_volume(0.05)
-window.geometry('450x600')
+window.geometry(f'{SIZE_OF_W_X}x{SIZE_OF_W_Y}')
 c = Canvas(window, bg="green", height=1920, width=1080)
 file = PhotoImage(file="BioWall.png")
 background_label = Label(window, image=file)
 background_label.place(x=0, y=0, relwidth=1, relheight=1)
-button = Button(window, text="Сгенерировать ключ", command=clicked, bg='#c7e2eb')
+button = Button(window, text="Сгенерировать ключ", command=lambda: generator(lbl), bg='#c7e2eb')
 lbl = Label(window, text='Генератор ключей', bg="#feffeb")
 lbl.place(x=170, y=335)
 button.place(x=170, y=295)
